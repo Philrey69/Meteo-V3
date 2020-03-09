@@ -44,9 +44,6 @@ export class CityService {
     return (this.city);
   };
 
-
-
-
   public retrieveCurrentPosition() {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
@@ -62,13 +59,4 @@ export class CityService {
     });
   }
 
-  // async presentAlert(textMessage) {
-  //   const alert = await this.alertController.create({
-  //     header: '',
-  //     subHeader: '',
-  //     message: textMessage,
-  //     buttons: ['OK']
-  //   });
-
-  // }
 }
