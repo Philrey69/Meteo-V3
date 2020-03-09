@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
 import { City } from '../shared/models/city.model';
 import { WeatherService } from '../shared/services/weather.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -40,14 +39,11 @@ load() {
 go(town: string) {
   this.weatherService.retrieveWeatherByName(town)
   .then((city: City) => {
-    console.log("apres retrieveByName in citiesList")
-    console.log(city);
     this.city = city;
     this.router.navigate(['/weather']);
 
   })
   .catch((error: HttpErrorResponse) => {
-    console.log(error)
     ;
   });
 }
@@ -56,9 +52,6 @@ go(town: string) {
 delete(town:string) {
   this.favoriteService.delete(town);
   this.load();
-
-  // this.router.navigate(['/citylist']);
-  /* il "reste" à supprimer de liste affichée...... */
 }
 
 goBack(){
