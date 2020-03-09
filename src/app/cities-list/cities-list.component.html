@@ -1,0 +1,13 @@
+<div *ngFor="let town of citiesList">
+  <ion-item *ngIf="town !=''" text-align="center">
+    <ion-fab-button class="search" (click)="go(town)" size="small">
+      <ion-icon name="search"></ion-icon>
+    </ion-fab-button>
+    {{ town }}
+    <ion-fab-button class="trash" (click)="delete(town)" size="small">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-item>
+</div>
+
+<ion-button (click)="goBack()" routerLink="/weather">GO BACK</ion-button>

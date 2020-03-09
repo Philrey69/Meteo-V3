@@ -1,0 +1,9 @@
+
+<form  [formGroup]="inputForm">
+  <ion-item>
+      <ion-input type="text" formControlName="cityKeyed" name="cityKeyed" 
+      placeholder="City name" (keypress)="onKeyPress($event)">
+      </ion-input>
+      <ion-button (click)="goButton()" >GO</ion-button>
+  </ion-item>
+</form>

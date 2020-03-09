@@ -1,0 +1,68 @@
+body {
+--ion-background-color:  #134192;
+}
+
+
+h1 {
+  --ion-background-color: blue;  
+  text-align: center;
+  // font-weight: bolder;
+  font-size: 30px;
+  font-family: "Helvetica";
+  border-bottom: 1px solid lightgrey;
+}
+
+#fav {
+  position: fixed;
+  margin-left: 90%;
+  top: 69px;
+  left: 1px;
+}
+h2 {
+  font-weight: lighter;
+}
+
+div {
+  text-align: center;
+}
+
+#min {
+  font-size: 15px;
+}
+#now {
+  font-size: 30px;
+  font-weight: bolder;
+}
+#max {
+  font-size: 15px;
+}
+
+#icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.miniIcon {
+  height: 85px;
+}
+
+.bigIcon {
+  height: 200px;
+  padding-left: 15px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.inputCitys {
+  display: flex;
+  // justify-content: center;
+  // align-items: flex-end;
+}
+
+.forecasts {
+  border-style: none;
+  --border-color: --background-color;
+}
