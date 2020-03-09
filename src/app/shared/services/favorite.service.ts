@@ -11,7 +11,6 @@ export class FavoriteService {
   find(town: string) {
     this.load();
     let index = this.citiesList.indexOf(town);
-    console.log(`Favorite index in favorite ${index}`)
     return index;
   }
 
@@ -31,17 +30,13 @@ export class FavoriteService {
   delete(town: string) {
     let nomVar: string;
     let ind = this.find(town);
-    console.log("A deleter des favoris" + town + "index " + ind);
-
     let index = this.citiesList.length;
-    console.log("tableau city lg : " + index + " " + this.citiesList);
     for (let i = 0; i <= index - 1; i++) {
       nomVar = "ville" + i.toString();
       localStorage.removeItem(nomVar);
     };
     this.citiesList.splice(ind, 1);
     index = index - 1;
-    console.log("tableau city lg apres splice : " + index + " " + this.citiesList);
     for (let i = 0; i <= index - 1; i++) {
       nomVar = "ville" + i.toString();
       localStorage.setItem(nomVar,this.citiesList[i]);
@@ -54,13 +49,9 @@ export class FavoriteService {
   add(city: City) {
     let nomVar: string;
     let index = this.load();
-    console.log ("add index après le load " + index);
     if (-1 === this.citiesList.indexOf(city.name) && city.name) {
-      console.log("ville non trouvée dans le tableau :");
-      console.log(city.name);
       this.citiesList.unshift(city.name);
       let newIndex = this.citiesList.length - 1;
-      console.log("newIndex ADD " + newIndex);
 
       for (let i = 0; i <= newIndex; i++) {
         nomVar = "ville" + i.toString();
