@@ -8,26 +8,24 @@ export class FavoriteService {
   private citiesList: string[] = [];
   constructor() { }
 
-  find(town: string) {
+  public find(town: string) {
     this.load();
     let index = this.citiesList.indexOf(town);
     return index;
   }
 
-  load() {
+  public load() {
     let nomVar: string;
-
     let index = localStorage.getItem("index")
     if (index) {
       for (let i = 0; i <= parseInt(index); i++) {
         nomVar = "ville" + i.toString();
         this.citiesList[i] = localStorage.getItem(nomVar);
-        this.citiesList[i+1] = "";
       };
     }
   }
 
-  delete(town: string) {
+  public delete(town: string) {
     let nomVar: string;
     let ind = this.find(town);
     let index = this.citiesList.length;
@@ -46,7 +44,7 @@ export class FavoriteService {
     localStorage.setItem("index", index.toString() );
   }
 
-  add(city: City) {
+  public add(city: City) {
     let nomVar: string;
     let index = this.load();
     if (-1 === this.citiesList.indexOf(city.name) && city.name) {

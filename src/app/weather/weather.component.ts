@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { City } from '../shared/models/city.model';
 import { CityService } from '../shared/services/city.service';
 import { WeatherService } from '../shared/services/weather.service';
-import { AlertController } from '@ionic/angular';
 import { FavoriteService } from '../shared/services/favorite.service';
 
 @Component({
@@ -51,8 +50,6 @@ export class WeatherComponent implements OnInit {
 
 
   public topFavorite() {
-    let nomVar: string;
-    let ind: number;
     if (this.city.favorite) {
       this.favoriteService.delete(this.city.name);
       this.city.favorite = false;

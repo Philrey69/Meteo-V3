@@ -1,67 +1,69 @@
-<div *ngIf="this.city.name">
-  <h1>{{ this.city.name }}
-    <ion-button id="fav" size="small" color="light" (click)="topFavorite()">
-      <ion-icon *ngIf="!this.city.favorite" name="star-outline"></ion-icon>
-      <ion-icon *ngIf="this.city.favorite" name="star" color="danger"></ion-icon>
-    </ion-button>
-  </h1>
-  <h2 *ngIf="this.city">{{ ((this.city.description).replace('_', ' ').toUpperCase()) }}</h2>
-  <div *ngIf="this.city">
-    <ion-iconmeteo id="icon">
-      <img class="bigIcon" src="assets/meteoIcons/{{this.city.descriptionIcon}}.png">
-    </ion-iconmeteo>
-    <p>
-    </p>
-
-    <a id="min">Min {{ this.city.tempMin }}° </a>
-    <a id="now"> {{ this.city.tempActual }}° </a>
-    <a id="max"> Max {{ this.city.tempMax }}°</a>
-    <p>
-      <a> Wind {{ this.city.wind }}</a>
-      <a> Humidity {{ this.city.humidity }}%</a>
-    </p>
-
-
-    <div *ngIf="this.city.tabMois[0] > 0" class="forecasts">
-      <ion-label>FORECASTS</ion-label>
-      <ion-item>
-        <ion-fab-button (click)="prev()" horizontal="start" size="small" color="light">
-          <ion-icon name="arrow-back"></ion-icon>
-        </ion-fab-button>
-
-        <ion-iconmeteo id="icon">
-          <img class="miniIcon" src="assets/meteoIcons/{{this.city.tabIconName[this.city.tabIndex]}}.png">
-        </ion-iconmeteo>
-
-        <ion-fab-button (click)="next()" horizontal="start" size="small" color="light">
-          <ion-icon name="arrow-forward"></ion-icon>
-        </ion-fab-button>
-
-      </ion-item>
-      <p> {{ this.city.tabWeatherDescription[this.city.tabIndex] }}</p>
-      <p> {{this.city.tabJour[this.city.tabIndex]}}/{{this.city.tabMois[this.city.tabIndex]}} at
-        {{this.city.tabHeure[this.city.tabIndex]}}:00,
-        <a>
-          <ion-icon name="thermometer"></ion-icon>
-        </a>temp : {{this.city.tabTemp[this.city.tabIndex]}}°,
-
-        wind : {{this.city.tabWind[this.city.tabIndex]}}
-
+<ion-content>
+  <div *ngIf="this.city.name">
+    <h1>{{ this.city.name }}
+      <ion-button id="fav" size="small" color="light" (click)="topFavorite()">
+        <ion-icon *ngIf="!this.city.favorite" name="star-outline"></ion-icon>
+        <ion-icon *ngIf="this.city.favorite" name="star" color="danger"></ion-icon>
+      </ion-button>
+    </h1>
+    <h2 *ngIf="this.city">{{ ((this.city.description).replace('_', ' ').toUpperCase()) }}</h2>
+    <div *ngIf="this.city">
+      <ion-iconmeteo id="icon">
+        <img class="bigIcon" src="assets/meteoIcons/{{this.city.descriptionIcon}}.png">
+      </ion-iconmeteo>
+      <p>
       </p>
 
-    </div>
+      <a id="min">Min {{ this.city.tempMin }}° </a>
+      <a id="now"> {{ this.city.tempActual }}° </a>
+      <a id="max"> Max {{ this.city.tempMax }}°</a>
+      <p>
+        <a> Wind {{ this.city.wind }}</a>
+        <a> Humidity {{ this.city.humidity }}%</a>
+      </p>
 
-    <div class="buttons">
-      <ion-button size="small" routerLink="/citylist">
-        <ion-icon name="heart" color="Light" (click)="favorite()"></ion-icon>
-      </ion-button>
-      <ion-button size="small" (click)="localisation()">
-        <ion-icon name="navigate" color="Light"></ion-icon>
-      </ion-button>
-    </div>
 
+      <div *ngIf="this.city.tabMois[0] > 0" class="forecasts">
+        <ion-label>FORECASTS</ion-label>
+        <ion-item>
+          <ion-fab-button (click)="prev()" horizontal="start" size="small" color="light">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-fab-button>
+
+          <ion-iconmeteo id="icon">
+            <img class="miniIcon" src="assets/meteoIcons/{{this.city.tabIconName[this.city.tabIndex]}}.png">
+          </ion-iconmeteo>
+
+          <ion-fab-button (click)="next()" horizontal="start" size="small" color="light">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-fab-button>
+
+        </ion-item>
+        <p> {{ this.city.tabWeatherDescription[this.city.tabIndex] }}</p>
+        <p> {{this.city.tabJour[this.city.tabIndex]}}/{{this.city.tabMois[this.city.tabIndex]}} at
+          {{this.city.tabHeure[this.city.tabIndex]}}:00,
+          <a>
+            <ion-icon name="thermometer"></ion-icon>
+          </a>temp : {{this.city.tabTemp[this.city.tabIndex]}}°,
+
+          wind : {{this.city.tabWind[this.city.tabIndex]}}
+
+        </p>
+
+      </div>
+
+      <div class="buttons">
+        <ion-button size="small" routerLink="/citylist">
+          <ion-icon name="heart" color="Light" (click)="favorite()"></ion-icon>
+        </ion-button>
+        <ion-button size="small" (click)="localisation()">
+          <ion-icon name="navigate" color="Light"></ion-icon>
+        </ion-button>
+      </div>
+
+
+    </div>
 
   </div>
-
-</div>
-<app-input (cityValue)="setCityValue($event)" class="inputCity"></app-input>
+  <app-input (cityValue)="setCityValue($event)" class="inputCity"></app-input>
+</ion-content>

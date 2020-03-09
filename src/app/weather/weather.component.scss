@@ -1,7 +1,26 @@
-body {
---ion-background-color:  #134192;
+:host {
+--ion-background-color:  #c3d4f1;
 }
 
+// :host {
+// --ion-background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+// 	// background-size: 400% 400%;
+// 	animation: gradient 5s ease infinite;
+// }
+
+// @keyframes gradient {
+// 	0% {
+// 		background-position: 0% 50%;
+// 	}
+// 	50% {
+// 		background-position: 100% 50%;
+// 	}
+// 	100% {
+// 		background-position: 0% 50%;
+// 	}
+// }
+
+// 
 
 h1 {
   --ion-background-color: blue;  
@@ -58,8 +77,6 @@ div {
 }
 .inputCitys {
   display: flex;
-  // justify-content: center;
-  // align-items: flex-end;
 }
 
 .forecasts {

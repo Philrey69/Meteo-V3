@@ -33,6 +33,7 @@ load() {
     for (let i = 0 ; i <= parseInt(index); i++) {
       this.nomVar = "ville"+i.toString();
       this.citiesList[i] = localStorage.getItem(this.nomVar);
+      this.citiesList[i+1] = "";
     };
 }
 
