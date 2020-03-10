@@ -29,8 +29,6 @@ export class WeatherService {
         .toPromise()
         .then((response: JSON) => {
           this.city = this.hydratDayWeatherFromJSON(response);
-          console.log("rerieveByCoord OK - this.city :")
-          console.log(this.city)
           localStorage.setItem("city", this.city.name);
           this.retrieveForecastsByName(this.city.name);
           resolve(this.city)
@@ -43,21 +41,17 @@ export class WeatherService {
   }
 
   public retrieveWeatherByName(cityName: string): Promise<City> {
-    console.log("retrieve weather by name : entrée " + cityName)
     return new Promise((resolve, reject) => {
       this.http.get(environment.baseUrl + "weather?q=" + cityName
         + "&appid=" + environment.appId + "&units=" + environment.units)
         .toPromise()
         .then((response: JSON) => {
           this.hydratDayWeatherFromJSON(response);
-          console.log("rerieveByName OK - this city :")
-          console.log(this.city)
           localStorage.setItem("city", this.city.name);
           this.retrieveForecastsByName(this.city.name);
           resolve(this.city)
         })
         .catch((error: HttpErrorResponse) => {
-          // Promise.resolve(error.json()));
           alert(`rerieveByName KO - error : ${error}`)
           reject(error)
         });
@@ -84,8 +78,6 @@ export class WeatherService {
           resolve(this.city)
         })
         .catch((error: HttpErrorResponse) => {
-          // Promise.resolve(error.json()));
-
           alert(`rerieveForecasts KO - error : ${[error.message]}`)
           reject(error)
         });
@@ -94,13 +86,10 @@ export class WeatherService {
 
 
   public hydratDayWeatherFromJSON(response: JSON) {
-    console.log("Hydratation Méteo du jour")
-    console.log(response)
     this.city = this.cityService.create();
     this.city.name = response['name'].toUpperCase();
     this.city.description = response['weather'][0]['description'].toUpperCase();
     let dt = new Date((response['sys']['sunrise'])*1000);
-    console.log("sunrise" + dt)
     this.city.sunRise = dt.getHours();
     this.city.sunRise = (this.city.sunRise * 100) + dt.getMinutes();
     dt = new Date((response['sys']['sunset'])*1000);
@@ -109,7 +98,6 @@ export class WeatherService {
     var date = new Date();
     var actual = date.getHours();
     actual = (actual * 100) + dt.getMinutes();
-    console.log("actual" + actual)
     if (actual > this.city.sunRise && actual < this.city.sunSet) {
       this.city.descriptionIcon = "s" + response['weather'][0]['description'].replace(' ', '_');
     } else {
@@ -123,13 +111,10 @@ export class WeatherService {
     this.city.tempFeel = response['main']['feels_like'].toFixed(1);
     this.city.latitude = response['coord']['lat'];
     this.city.longitude = response['coord']['lon'];
-    console.log(this.city);
     return this.city;
   }
 
   public hydratForecastFromJSON(response: JSON) {
-    console.log("Hydratation Forecasts")
-    console.log(response)
     for (let i = 0; i <= 39; i++) {
       this.city.tabIconName[i] = (response['list'][i]['weather'][0]['description']).replace(' ', '_');
       this.city.tabWeatherDescription[i] = response['list'][i]['weather'][0]['description'].toUpperCase();
