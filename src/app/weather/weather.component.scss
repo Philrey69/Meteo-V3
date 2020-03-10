@@ -1,25 +1,50 @@
-$nightandday: #f7f9fc;
+// ion-content {
+//   --background: url(/assets/brokenclouds.jpg) no-repeat center/cover fixed;
+// }
+
+ion-content.jour{
+  --background: url(/assets/brokenclouds.jpg) no-repeat center/cover fixed;
+}
 
 
+ion-content.nuit{
+  --background: url(/assets/smoderaterain.jpeg) no-repeat center/cover fixed;
+}
 
 
-:host {
+// ion-content .jour{
+//   background-color: green;
+// }
+
+// ion-content .nuit{
+//   background-color: purple;
+// }
+
+
+// :host {
   // color: darken($nightandday, 80%);
---ion-background-color:  #c3d4f1;
+  // --ion-background-color:  #c3d4f1;
+  // --ion-background-color: #eeeeff;
+  // --ion-background-color: linear-gradient(45deg, #e2e3ee, #02052c);
+// }
 
-// --ion-background-color: linear-gradient(45deg, #e2e3ee, #02052c);
+
+
+div.jour {
+  color: rgb(35, 11, 63);
 }
 
-a {
-  color:black;
+div.nuit {
+  color: yellow;
 }
+
 
 
 h1 {
   text-align: center;
   font-size: 30px;
   font-family: "Helvetica";
-  border-bottom: 1px solid lightgrey;
+  font-weight: bolder;
 }
 
 #fav {
@@ -28,6 +53,7 @@ h1 {
   top: 69px;
   left: 1px;
 }
+
 h2 {
   font-weight: lighter;
 }
@@ -39,10 +65,12 @@ div {
 #min {
   font-size: 15px;
 }
+
 #now {
   font-size: 30px;
   font-weight: bolder;
 }
+
 #max {
   font-size: 15px;
 }
@@ -66,11 +94,8 @@ div {
   display: flex;
   justify-content: space-around;
 }
+
 .inputCitys {
   display: flex;
 }
 
-.forecasts {
-  border-style: none;
-  --border-color: --background-color;
-}

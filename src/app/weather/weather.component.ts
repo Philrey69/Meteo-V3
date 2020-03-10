@@ -18,6 +18,7 @@ export class WeatherComponent implements OnInit {
     private cityService: CityService,
     private weatherService: WeatherService,
     private favoriteService: FavoriteService
+
     
   ) {
 
@@ -90,4 +91,22 @@ export class WeatherComponent implements OnInit {
     }
     return;
   }
+
+
+ 
+
+  public getClass() {
+    console.log(this.city);
+    let heure = new Date().getHours();
+    let minute = new Date().getMinutes();
+    heure = (heure * 100) + minute;
+    console.log(heure);
+    if (heure < this.city.sunRise && heure > this.city.sunSet) {
+      return("jour");
+    } else {
+      return("nuit")
+    }
+  }
+
+  
 }
