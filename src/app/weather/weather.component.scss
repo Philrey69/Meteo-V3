@@ -2,12 +2,17 @@ $nightandday: #f7f9fc;
 
 
 
+
 :host {
   // color: darken($nightandday, 80%);
 --ion-background-color:  #c3d4f1;
+
 // --ion-background-color: linear-gradient(45deg, #e2e3ee, #02052c);
 }
 
+a {
+  color:black;
+}
 
 
 h1 {

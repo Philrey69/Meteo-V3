@@ -14,18 +14,18 @@
       <p>
       </p>
 
-      <a id="min">Min {{ this.city.tempMin }}° </a>
-      <a id="now"> {{ this.city.tempActual }}° </a>
+      <a id="min">Min {{ this.city.tempMin }}° </a><a>  </a>
+      <a id="now"> {{ this.city.tempActual }}° </a><a>  </a>
       <a id="max"> Max {{ this.city.tempMax }}°</a>
       <p>
         <a> Wind {{ this.city.wind }}</a>
         <a> Humidity {{ this.city.humidity }}%</a>
       </p>
-
-
+      
+      <br>
       <div *ngIf="this.city.tabMois[0] > 0" class="forecasts">
-        <ion-label>FORECASTS</ion-label>
-        <ion-item>
+        <h3>FORECASTS</h3>
+        <ion-item lines="none">
           <ion-fab-button (click)="prev()" horizontal="start" size="small" color="light">
             <ion-icon name="arrow-back"></ion-icon>
           </ion-fab-button>
@@ -37,10 +37,11 @@
           <ion-fab-button (click)="next()" horizontal="start" size="small" color="light">
             <ion-icon name="arrow-forward"></ion-icon>
           </ion-fab-button>
-
         </ion-item>
-        <p> {{ this.city.tabWeatherDescription[this.city.tabIndex] }}</p>
-        <p> {{this.city.tabJour[this.city.tabIndex]}}/{{this.city.tabMois[this.city.tabIndex]}} at
+        <br>
+        <p></p>
+        <a> {{ this.city.tabWeatherDescription[this.city.tabIndex] }}</a>
+        <a> {{this.city.tabJour[this.city.tabIndex]}}/{{this.city.tabMois[this.city.tabIndex]}} at
           {{this.city.tabHeure[this.city.tabIndex]}}:00,
           <a>
             <ion-icon name="thermometer" color="dark"></ion-icon>
@@ -48,7 +49,7 @@
           <img  src="assets/icon/wind.png">
            {{this.city.tabWind[this.city.tabIndex]}}
 
-        </p>
+        </a>
 
       </div>
 

@@ -12,6 +12,7 @@ import { FavoriteService } from '../shared/services/favorite.service';
 export class WeatherComponent implements OnInit {
 
   private city: City;
+  private color: string;
 
   constructor(
     private cityService: CityService,
@@ -44,10 +45,7 @@ export class WeatherComponent implements OnInit {
     } else {
       this.city.favorite = false;
     }
-
   }
-
-
 
   public topFavorite() {
     if (this.city.favorite) {
@@ -58,7 +56,6 @@ export class WeatherComponent implements OnInit {
       this.city.favorite = true;
     }
   }
-
 
   public localisation() {
     this.city = this.cityService.create();
@@ -75,10 +72,8 @@ export class WeatherComponent implements OnInit {
       });
   }
 
-
-
-
   public next(): void {
+    
     if ((this.city.tabIndex + 1) == (40)) {
       this.city.tabIndex = 0
     } else {
