@@ -21,23 +21,15 @@ export class CitiesListComponent implements OnInit {
     private weatherService: WeatherService,
     private router: Router
   ) { 
+
+    this.citiesList = this.favoriteService.load();
    
-    this.load();
   }
 
-load() {
-  let index = localStorage.getItem("index")
-    if (!index) {
-      index = "-1"
-    } 
-    for (let i = 0 ; i <= parseInt(index); i++) {
-      this.nomVar = "ville"+i.toString();
-      this.citiesList[i] = localStorage.getItem(this.nomVar);
-      this.citiesList[i+1] = "";
-    };
-}
 
-go(town: string) {
+
+
+public go(town: string) {
   this.weatherService.retrieveWeatherByName(town)
   .then((city: City) => {
     this.city = city;
@@ -50,9 +42,9 @@ go(town: string) {
 }
 
 
-delete(town:string) {
+public delete(town:string) {
   this.favoriteService.delete(town);
-  this.load();
+  this.citiesList = this.favoriteService.load();
 }
 
 goBack(){

@@ -23,6 +23,7 @@ export class FavoriteService {
         this.citiesList[i] = localStorage.getItem(nomVar);
       };
     }
+    return (this.citiesList)
   }
 
   public delete(town: string) {
