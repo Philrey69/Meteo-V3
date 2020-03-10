@@ -1,31 +1,17 @@
+$nightandday: #f7f9fc;
+
+
+
 :host {
+  // color: darken($nightandday, 80%);
 --ion-background-color:  #c3d4f1;
+// --ion-background-color: linear-gradient(45deg, #e2e3ee, #02052c);
 }
 
-// :host {
-// --ion-background-color: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-// 	// background-size: 400% 400%;
-// 	animation: gradient 5s ease infinite;
-// }
 
-// @keyframes gradient {
-// 	0% {
-// 		background-position: 0% 50%;
-// 	}
-// 	50% {
-// 		background-position: 100% 50%;
-// 	}
-// 	100% {
-// 		background-position: 0% 50%;
-// 	}
-// }
-
-// 
 
 h1 {
-  --ion-background-color: blue;  
   text-align: center;
-  // font-weight: bolder;
   font-size: 30px;
   font-family: "Helvetica";
   border-bottom: 1px solid lightgrey;
