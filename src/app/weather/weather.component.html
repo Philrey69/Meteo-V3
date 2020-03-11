@@ -1,11 +1,5 @@
-
-
-
-<ion-content [class]="this.getClass()">
-  <!-- <img src='/assets/brokenclouds.jpg' object-fit="cover" align="center" > -->
-
-  <!--   -->
-  <div *ngIf="this.city.name" [class]="this.getClass()">
+<ion-content>
+  <div *ngIf="this.city.name">
     <h1>{{ this.city.name }}
       <ion-button id="fav" size="small" color="light" (click)="topFavorite()">
         <ion-icon *ngIf="!this.city.favorite" name="star-outline"></ion-icon>
@@ -19,51 +13,43 @@
       </ion-iconmeteo>
       <p>
       </p>
-      <div>
-        <div>
-          <ion-icon name="md-arrow-round-down"></ion-icon>
-          Min {{ this.city.tempMin }}°
-        </div>
-        <div id="now"> {{ this.city.tempActual }}° </div>
-        <div id="max">
-          <ion-icon name="md-arrow-round-up"></ion-icon>
-          Max {{ this.city.tempMax }}°
-        </div>
-        <br>
-        <div> Wind {{ this.city.wind }} Humidity {{ this.city.humidity }}%
-        </div>
-      </div>
+
+      <a id="min">Min {{ this.city.tempMin }}° </a><a>  </a>
+      <a id="now"> {{ this.city.tempActual }}° </a><a>  </a>
+      <a id="max"> Max {{ this.city.tempMax }}°</a>
+      <p>
+        <a> Wind {{ this.city.wind }}</a>
+        <a> Humidity {{ this.city.humidity }}%</a>
+      </p>
+      
       <br>
-      <div *ngIf="this.city.tabMois[0] > 0" >
+      <div *ngIf="this.city.tabMois[0] > 0" class="forecasts">
         <h3>FORECASTS</h3>
-        <div display="inline">
-          <ion-fab-button (click)="prev()" horizontal="start" size="small" color="light" display="inline">
+        <ion-item lines="none">
+          <ion-fab-button (click)="prev()" horizontal="start" size="small" color="light">
             <ion-icon name="arrow-back"></ion-icon>
           </ion-fab-button>
 
-          <ion-iconmeteo id="icon" display="inline>
+          <ion-iconmeteo id="icon">
             <img class="miniIcon" src="assets/meteoIcons/{{this.city.tabIconName[this.city.tabIndex]}}.png">
           </ion-iconmeteo>
 
-          <ion-fab-button (click)="next()" horizontal="start" size="small" color="light" display="inline>
+          <ion-fab-button (click)="next()" horizontal="start" size="small" color="light">
             <ion-icon name="arrow-forward"></ion-icon>
           </ion-fab-button>
-        </div>
+        </ion-item>
         <br>
         <p></p>
+        <a> {{ this.city.tabWeatherDescription[this.city.tabIndex] }}</a>
+        <a> {{this.city.tabJour[this.city.tabIndex]}}/{{this.city.tabMois[this.city.tabIndex]}} at
+          {{this.city.tabHeure[this.city.tabIndex]}}:00,
+          <a>
+            <ion-icon name="thermometer" color="dark"></ion-icon>
+          </a> {{this.city.tabTemp[this.city.tabIndex]}}°,
+          <img  src="assets/icon/wind.png">
+           {{this.city.tabWind[this.city.tabIndex]}}
 
-        <div> {{ this.city.tabWeatherDescription[this.city.tabIndex] }}</div>
-        <br>
-        <div> {{this.city.tabJour[this.city.tabIndex]}}/{{this.city.tabMois[this.city.tabIndex]}} at
-          {{this.city.tabHeure[this.city.tabIndex]}}:00
-        </div>
-        <div>   
-          <ion-icon name="thermometer" ></ion-icon>
-          {{this.city.tabTemp[this.city.tabIndex]}}°,
-          <ion-icon name="md-nuclear" ></ion-icon>
-          {{this.city.tabWind[this.city.tabIndex]}}
-
-        </div>
+        </a>
 
       </div>
 
